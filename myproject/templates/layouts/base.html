@@ -1,0 +1,230 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Roam India - Travel & Booking{% endblock %}</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #073b75;
+            color: white;
+        }
+
+        .topbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav {
+            border-top: 1px solid #ffffff30;
+        }
+
+        .nav-links {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 20px;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        main {
+            min-height: 65vh;
+        }
+
+        footer {
+            background: #082d55;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        footer a {
+            display: block;
+            color: #ddd;
+            text-decoration: none;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #ffffff30;
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+        @media(max-width: 600px) {
+            .topbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-links a {
+                margin: 0 7px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+        }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+</head>
+
+<body>
+
+<header>
+    <div class="topbar">
+        <a href="/" class="logo">Roam India</a>
+
+        <div class="header-links">
+            <a href="#">List Your Property</a>
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#">Hotels</a>
+            <a href="#">Flights</a>
+            <a href="#">Homes & Apartments</a>
+            <a href="#">Activities</a>
+            <a href="#">Airport Transfer</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <div class="footer-content">
+
+        <div>
+            <h2>Roam India</h2>
+            <p style="margin-top:12px;">Explore More. Travel Better.</p>
+        </div>
+
+        <div>
+            <h3>Discover</h3>
+            <a href="#">Hotels</a>
+            <a href="#">Flights</a>
+            <a href="#">Holiday Homes</a>
+            <a href="#">Activities</a>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Contact Us</a>
+            <a href="#">FAQs</a>
+        </div>
+
+        <div>
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 Roam India. All Rights Reserved.
+    </div>
+</footer>
+<!-- AI Chatbot -->
+<button id="chatbot-toggle" aria-label="Open AI Assistant">
+    ✦
+</button>
+
+<div id="chatbot-window">
+
+    <div class="chatbot-header">
+        <div>
+            <strong>Travel AI Assistant</strong>
+            <div style="font-size: 12px;">Online · Powered by AI</div>
+        </div>
+
+        <button id="chatbot-close"
+                style="background:none; border:none; color:white; font-size:22px; cursor:pointer;">
+            ×
+        </button>
+    </div>
+
+    <div id="chatbot-messages" class="chatbot-body">
+        
+    </div>
+
+    <form id="chatbot-form" class="chatbot-input">
+        <input
+            type="text"
+            id="chatbot-message"
+            placeholder="Ask me anything about travel..."
+            autocomplete="off"
+            required
+        >
+
+        <button type="submit">Send</button>
+    </form>
+
+</div>
+<script src="{% static 'js/chatbot.js' %}" defer></script>
+</body>
+</html>

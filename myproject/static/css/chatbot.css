@@ -1,0 +1,98 @@
+/* Booking AI Chatbot */
+
+#chatbot-toggle {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: #073b75;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+}
+
+#chatbot-window {
+    display: none;
+    position: fixed;
+    right: 25px;
+    bottom: 100px;
+    width: 360px;
+    height: 480px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.chatbot-header {
+    background: #073b75;
+    color: white;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-body {
+    height: 350px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.chatbot-input button {
+    margin-left: 8px;
+    padding: 10px 15px;
+    background: #073b75;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.chat-message {
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    max-width: 85%;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.user-message {
+    background: #e5edff;
+    margin-left: auto;
+}
+
+.bot-message {
+    background: #f1f1f1;
+    margin-right: auto;
+}
+
+@media(max-width: 480px) {
+    #chatbot-window {
+        width: calc(100% - 24px);
+        right: 12px;
+        bottom: 90px;
+    }
+}
